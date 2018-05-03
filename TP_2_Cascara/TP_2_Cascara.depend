@@ -13,16 +13,16 @@
 	<ctype.h>
 	"funciones.h"
 
-1525100940 source:c:\users\ayele\desktop\tp_2_cascara\funciones.c
+1525378160 source:c:\users\ayele\desktop\tp_2_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"funciones.h"
 
-1525101451 c:\users\ayele\desktop\tp_2_cascara\funciones.h
+1525258056 c:\users\ayele\desktop\tp_2_cascara\funciones.h
 
-1525103824 source:c:\users\ayele\desktop\tp_2_cascara\main.c
+1525258056 source:c:\users\ayele\desktop\tp_2_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"

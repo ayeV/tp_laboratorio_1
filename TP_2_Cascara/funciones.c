@@ -227,7 +227,8 @@ void graficar(int parametro1, int parametro2, int parametro3){
         }
 
 
-    printf("<18\t19-35\t>35");
+    printf("<18\t19-35\t>35\n");
+
 
 }
 
