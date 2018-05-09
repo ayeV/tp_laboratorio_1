@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "funciones.h"
+#include "input.h"
 
 
 void inicializarPersonas(ePersona vec[], int tam)
@@ -70,9 +71,8 @@ void agregarPersona(ePersona vec[],int tam)
         printf("El sistema no admite mas personas\n");
     }
     else
-    {
-        printf("DNI: ");
-        scanf("%d",&dni);
+    {   getInt(&dni,"Ingrese DNI: ","Rango valido[1-40000000]",1,40000000);
+
 
         esta = buscarPorDni(vec,dni);
         if(esta != -1 )
@@ -85,11 +85,8 @@ void agregarPersona(ePersona vec[],int tam)
             nuevaPersona.estado = 0;
             nuevaPersona.dni =dni;
 
-            printf("Nombre: ");
-            fflush(stdin);
-            scanf("%[^\n]",nuevaPersona.nombre);
-            printf("Edad: ");
-            scanf("%d",&nuevaPersona.edad);
+            getString(nuevaPersona.nombre,"Nombre: ","Rango valido [2-50]",2,50);
+            getInt(&nuevaPersona.edad,"Ingrese edad: ","Rango valido[1-100]",1,100);
 
 
             vec[indice] = nuevaPersona;
@@ -106,8 +103,8 @@ void baja(ePersona vec[],int tam)
 
     system("cls");
 
-    printf("DNI: ");
-    scanf("%d", &dni);
+     getInt(&dni,"Ingrese DNI: ","Rango valido[1-40000000]",1,40000000);
+
     esta = buscarPorDni(vec, dni);
     if(esta == -1)
     {
