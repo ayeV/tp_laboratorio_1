@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
-#include "input.h"
-#define CANT 3
+
+#define CANT 20
 
 int main()
 {
