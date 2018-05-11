@@ -13,21 +13,19 @@
 	<ctype.h>
 	"funciones.h"
 
-1525903026 source:c:\users\ayele\desktop\tp_2_cascara\funciones.c
+1526059648 source:c:\users\ayele\desktop\tp_2_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"funciones.h"
-	"input.h"
 
-1525903142 c:\users\ayele\desktop\tp_2_cascara\funciones.h
+1526058004 c:\users\ayele\desktop\tp_2_cascara\funciones.h
 
-1525903042 source:c:\users\ayele\desktop\tp_2_cascara\main.c
+1525984017 source:c:\users\ayele\desktop\tp_2_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
-	"input.h"
 
 1525264901 source:c:\users\alumno\desktop\consultas-master\tp_2_cascara\main.c
 	<stdio.h>

@@ -7,81 +7,8 @@
 
 
 
-int getInt(int* input,char message[],char eMessage[], int lowLimit, int hiLimit)
-{
-    int indice = 0;
-
-    printf("%s",message);
-    scanf("%d",input);
-
-    while( *input < lowLimit || *input >hiLimit)
-    {
-        printf("%s", eMessage);
-        scanf("%d",input);
-    }
-
-    if(*input >lowLimit || *input <hiLimit){
-        return indice;
-    }
-    else{
-        indice = -1;
-        return indice;
-    }
 
 
-
-}
-
-
-int getFloat(float* input,char message[],char eMessage[], float lowLimit, float hiLimit)
-{
-    int indice=0;
-
-    printf("%s",message);
-    scanf("%f",input);
-
-    while( *input < lowLimit || *input >hiLimit)
-    {
-        printf("%s", eMessage);
-        scanf("%f",input);
-    }
-    if(*input >lowLimit || *input <hiLimit){
-        return indice;
-    }
-    else{
-        indice = -1;
-        return indice;
-    }
-
-
-
-}
-
-
-int getChar(char* input,char message[],char eMessage[], char lowLimit, char hiLimit)
-{
-    int indice=0;
-
-     printf("%s",message);
-     fflush(stdin);
-    scanf("%c",input);
-
-    while( *input < lowLimit || *input >hiLimit)
-    {
-        printf("%s", eMessage);
-        fflush(stdin);
-        scanf("%c",input);
-    }
-
-   if(*input >lowLimit || *input <hiLimit){
-        return indice;
-    }
-    else{
-        indice = -1;
-        return indice;
-    }
-
-}
 
 
 int getString(char* input,char message[],char eMessage[], int lowLimit, int hiLimit)
@@ -163,10 +90,12 @@ int buscarPorDni(ePersona lista[], int dni)
 void agregarPersona(ePersona vec[],int tam)
 {
     ePersona nuevaPersona;
+    int i;
+    int flag = 0;
     int esta;
     int dni;
     int indice;
-
+    char aux[15];
 
     system("cls");
     indice = obtenerEspacioLibre(vec);
@@ -177,8 +106,26 @@ void agregarPersona(ePersona vec[],int tam)
         printf("El sistema no admite mas personas\n");
     }
     else
-    {   getInt(&dni,"Ingrese DNI: ","Rango valido[1-40000000]",1,40000000);
-
+    {
+        printf("\nIngrese DNI: ");
+        fflush(stdin);
+        scanf("%s",aux);
+        for(i=0 ; i<strlen(aux) ; i++)
+        {
+            if(!isdigit(aux[i]))
+            {
+                flag=1;
+                while(flag==1)
+                {
+                    printf("\nIngrese DNI nuevamente: ");
+                    fflush(stdin);
+                    scanf("%s",aux);
+                    i=-1;
+                    flag=0;
+                }
+            }
+        }
+        dni=atoi(aux);
 
         esta = buscarPorDni(vec,dni);
         if(esta != -1 )
@@ -192,7 +139,28 @@ void agregarPersona(ePersona vec[],int tam)
             nuevaPersona.dni =dni;
 
             getString(nuevaPersona.nombre,"Nombre: ","Rango valido [2-50]",2,50);
-            getInt(&nuevaPersona.edad,"Ingrese edad: ","Rango valido[1-100]",1,100);
+
+        printf("\nIngrese edad: ");
+        fflush(stdin);
+        scanf("%s",aux);
+        for( i=0 ; i<strlen(aux) ; i++)
+        {
+            if(!isdigit(aux[i]))
+            {
+                flag=1;
+                while(flag==1)
+                {
+                    printf("\nIngrese edad nuevamente: ");
+                    fflush(stdin);
+                    scanf("%s",aux);
+                    i=-1;
+                    flag=0;
+                }
+            }
+        }
+        nuevaPersona.edad=atoi(aux);
+
+
 
 
             vec[indice] = nuevaPersona;
@@ -204,13 +172,34 @@ void agregarPersona(ePersona vec[],int tam)
 void baja(ePersona vec[],int tam)
 {
     int dni;
+    char aux[15];
+    int i;
+    int flag = 0;
     char opc;
     int esta;
 
     system("cls");
 
-     getInt(&dni,"Ingrese DNI: ","Rango valido[1-40000000]",1,40000000);
 
+        printf("\nIngrese DNI: ");
+        fflush(stdin);
+        scanf("%s",aux);
+        for(i=0 ; i<strlen(aux) ; i++)
+        {
+            if(!isdigit(aux[i]))
+            {
+                flag=1;
+                while(flag==1)
+                {
+                    printf("\nIngrese DNI nuevamente: ");
+                    fflush(stdin);
+                    scanf("%s",aux);
+                    i=-1;
+                    flag=0;
+                }
+            }
+        }
+    dni=atoi(aux);
     esta = buscarPorDni(vec, dni);
     if(esta == -1)
     {
@@ -282,7 +271,6 @@ void mostrarPersona(ePersona vec)
 
     printf("%d\t\t%s\t\t%d\n", vec.dni, vec.nombre,vec.edad);
 }
-
 
 void graficar(int parametro1, int parametro2, int parametro3){
     int i;
