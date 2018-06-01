@@ -67,31 +67,6 @@ void mostrarPelicula(eMovie* movie)
 
 
 
-
-
-
-void mostrarPeliculas(eMovie* movies, int tam)
-{
-    int i;
-    printf("TITULO\tGENERO\tDURACION\tDESCRIPCION\t\tPUNTAJE\n");
-    if(movies != NULL && tam > 0)
-    {
-        for( i=0; i< tam; i++)
-        {
-
-            if((movies+ i)->estado)
-            {
-                mostrarPelicula(movies+i);
-            }
-        }
-    }
-    else
-    {
-        printf("\nNo se pueden mostrar las peliculas\n");
-    }
-
-}
-
 void alta(eMovie movies[])
 {
     int index, i;
@@ -169,7 +144,8 @@ void baja(eMovie* movies)
                 fflush(stdin);
                 scanf("%c", &opcion);
                 opcion = tolower(opcion);
-            }while(opcion != 's' && opcion != 'n');
+            }
+            while(opcion != 's' && opcion != 'n');
 
 
             if(opcion=='s')
@@ -186,7 +162,7 @@ void baja(eMovie* movies)
             break;
         }
     }
-if( flag == 0)
+    if( flag == 0)
     {
         printf("Pelicula inexistente\n");
         getch();
@@ -343,29 +319,29 @@ void generarPagina(eMovie lista[])
 
 int cargarDesdeArchivo(eMovie *x)
 {
-	int flag = 0;
-	FILE *f;
+    int flag = 0;
+    FILE *f;
 
-	f=fopen("movies.dat", "rb");
-	if(f==NULL)
-	{
-		f= fopen("movies.dat", "wb");
-		if(f==NULL)
-		{
-			return 1;
-		}
+    f=fopen("movies.dat", "rb");
+    if(f==NULL)
+    {
+        f= fopen("movies.dat", "wb");
+        if(f==NULL)
+        {
+            return 1;
+        }
 
-		flag=1;
+        flag=1;
 
-	}
-
-	if(flag ==0)
-	{
-	fread(x,sizeof(eMovie),CANT,f);
     }
 
-	fclose(f);
-	return 0;
+    if(flag ==0)
+    {
+        fread(x,sizeof(eMovie),CANT,f);
+    }
+
+    fclose(f);
+    return 0;
 
 }
 
